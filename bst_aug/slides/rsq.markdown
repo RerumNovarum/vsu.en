@@ -1,10 +1,10 @@
 RSQ (range sum query)
 ---
 
-Given array ```a[1 ... n]``` of $n$ numbers
+Given array ```a[1..n]``` of $n$ numbers
 for given $1 \leq l \leq r \leq n$
 calculate the sum of all numbers
-in subarray ```a[l ... r]```
+in subarray ```a[l..r]```
 
 . . .
 

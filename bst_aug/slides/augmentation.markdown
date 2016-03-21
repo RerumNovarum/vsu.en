@@ -1,3 +1,32 @@
+Augmentation
+------------
+
+The idea is following:
+
+If you're considering node $n$,
+which represents range ```[n.lk, n.rk]```,
+and you know the multiple ```n.l.mul```
+of values with keys in range ```n.l.lk, n.l.rk```
+and multiple of ```n.r.mul```
+of values with keys in range ```n.r.lk, n.r.lk```,
+then simply ```n.mul = n.l.mul * n.v * n.r.mul```
+
+* * *
+
+Augmentation
+------------
+
+More generally,
+if range $l..r$ is requested,
+and we're in node $n$,
+then we either
+
+* return $0$ if $[n.lk, n.rk]\cap [l,r] = \emptyset$
+* return ```n.mul``` if  $[n.lk, n.rk] \subset [l,r]$
+* recursively go into childrens and combine answers and value in current node
+
+* * *
+
 Augmentation theorem
 --------------------
 

@@ -1,9 +1,9 @@
 RMQ (range minimum query)
 ---
 
-Given array ```a[1 ... n]``` of $n$ objects of well-ordered set
+Given array ```a[1..n]``` of $n$ objects of well-ordered set
 for given $1 \leq l \leq r \leq n$ find the minimal element
-in subarray ```a[l ... r]```
+in subarray ```a[l..r]```
 
 . . .
 
@@ -16,7 +16,9 @@ Actually much-much larger class of similar problems is solvable with generic app
 * * *
 
 Simple solution is to remember
-minimal values in each subarray ```a[2**k, 2**(k+1)]```.
+minimal values in whole array ```a[1..n]```,
+subarray ```a[1..n/2], a[n/2+1..n]```, $\ldots
+(continuing splitting intervals, until $l=r$)
 
 . . .
 
@@ -27,7 +29,7 @@ $\ldots$.
 . . .
 
 Total number of such segments is bounded by
-$$\sum_k N/2^k = N \sum_k 2^{-k} = N \frac{1}{1-1/2} = 2N$$.
+$$\sum_k N/2^k = N \sum_k 2^{-k} = N \frac{1}{1-1/2} = 2N$$
 
 Which means that we only need to use linear in $n$ space
 
@@ -40,7 +42,9 @@ where $l$ and $r$ are powers of 2
 . . .
 
 Begining with $tl=1, tr=n$
-we can solve task with simple recursive logic:
+we can solve task with simple recursive logic
+
+* * *
 
 ```python
 def rmq(l, r, tl, tr):
@@ -48,8 +52,10 @@ def rmq(l, r, tl, tr):
   if contains(l, r, tl, tr): return cache(l,r)
   m = (tl+tr)//2
   infimum = INFINITY
-  if intersects(l, r, tl, m): infimum = min(infimum, rmq(l, r, tl, m))
-  if intersects(l, r, m+1, tr): infimum = min(infimum, rmq(l, r, m+1, tr))
+  if intersects(l, r, tl, m):
+    infimum = min(infimum, rmq(l, r, tl, m))
+  if intersects(l, r, m+1, tr):
+     infimum = min(infimum, rmq(l, r, m+1, tr))
   return infimum
 ```
 

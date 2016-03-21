@@ -4,7 +4,7 @@ author: 'Sergey V Kozlukov'
 name:   'Sergey V Kozlukov'
 email:  'rerumnovarum@openmailbox.org'
 gpg:    'B986D856'
-github: 'https://github.com/RerumNovarum'
+github: "https://github.com/RerumNovarum"
 date: '2016-03-21 01:23:15'
 tags: [algs, datastructures, bst, segmenttree]
 references:
@@ -21,3 +21,4 @@ references:
         given:  Clifford
     title:  "Introduction to algorithms"
 ---
+
