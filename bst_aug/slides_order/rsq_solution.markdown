@@ -1,0 +1,1 @@
+../slides/rsq_solution.markdown
