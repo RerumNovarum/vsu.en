@@ -8,7 +8,7 @@ with total order defined on it,
 instead of indices of array
 
 And like before we want
-perform
+to perform
 
 * ```put(k, v)```
 * ```get(l, r)```
@@ -24,6 +24,10 @@ Since key's aren't integers bounded by some small constant,
 we can't use key as index in array
 
 What to do?
+
+. . .
+
+We need some ordered Symbol Table
 
 . . .
 

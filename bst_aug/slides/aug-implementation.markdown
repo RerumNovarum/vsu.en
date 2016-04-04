@@ -1,34 +1,21 @@
 Augmenting search trees
 -----------------------
 
-Let's say we implemented
-red-black BST with following API:
+To insert into BST:
 
-```python
-class Node:
-    def __init__(self, k, v): pass
-class RBBST:
-    def __init__(self):
-      self.Node = Node # to be overriden
-      pass
-    def restore(self, h): pass # to be overriden
-    def balance(self, h): pass
-    def put(self, k, v):  pass
-    def get(self, k):     pass
-    def rotate_left(self, h): pass
-    def flip_colors(self, h): pass
-    def rotation_fix(self, x, h):  pass
-```
+* Choose subtree to go
+* Call 'insert' for it recursively
+* Update aux data based on children's aux
 
 * * *
 
 Augmenting search trees
 -----------------------
 
-Here ```balance``` performs required rotations
-calls ```restore``` if necessary
-and returns new root of subtree
-It is called during insertion in following manner:
+Balancing?
+Is based on local rotations,
+so we can maintain auxiliary data
+during them
 
 * * *
 
@@ -47,13 +34,10 @@ and maintain balance"""
         if k < h.k:     h.l = self.__put__(h.l, k, v)
         elif h.k < k:   h.r = self.__put__(h.r, k, v)
         else:           h.v = v
-        self.restore(h)
-        h = self.balance(h)
+        self.restore(h) # here we maintain aux
+        h = self.balance(h) # and here too
         return h
 ```
-
-We will augment tree by overriding ```Node``` class
-and ```restore``` method
 
 * * *
 
@@ -99,22 +83,6 @@ t.put(1, 'some ')
 t.put(10**32, 'strings') # we can use some large 'indices'* * *
 t.put(-10**9, 'concat ')
 t.mul(-10**64, 10**64)   # yields 'concat some strings'
-```
-
-* * *
-
-SegmentTree Node
-----------------
-
-```python
-class Node:
-    def __init__(self, k, v):
-        self.k, self.v = k, v # key, value
-        self.c         = RED  # color
-        self.l, self.r = None, None # segment [l,r] represented by Node
-    def __str__(self):
-        return '(%s, %s, %s)'%(k, v, 'RED' if self.c else 'BLACK')
-    def __repr__(self): return self.__str__()
 ```
 
 * * *

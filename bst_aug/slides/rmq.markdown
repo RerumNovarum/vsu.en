@@ -17,7 +17,7 @@ Actually much-much larger class of similar problems is solvable with generic app
 
 Simple solution is to remember
 minimal values in whole array ```a[1..n]```,
-subarray ```a[1..n/2], a[n/2+1..n]```, $\ldots
+subarray ```a[1..n/2], a[n/2+1..n]```, $\ldots$
 (continuing splitting intervals, until $l=r$)
 
 . . .

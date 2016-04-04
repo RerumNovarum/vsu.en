@@ -31,4 +31,8 @@ Monoid
 Monoid is a set with an associative binary operation on it
 and an identity element regarding this operation
 
+. . .
+
+Monoid is fundamental structure for range-queries
+
 * * *

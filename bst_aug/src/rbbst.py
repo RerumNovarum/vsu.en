@@ -43,18 +43,18 @@ used to locally balance subtree (simulating 2-3-tree)"""
 $k \\in K$ where $K$ is totally ordered set of keys
 $v \\in M$ where $M$ is set of values
 associates value $v$ with key $k$"""
-        self.root   = self.__put__(self.root, k, v)
+        self.root   = self.subtree_put(self.root, k, v)
         self.root.c = BLACK
-    def __put__(self, h, k, v):
-        """__put__(h, k, v)
+    def subtree_put(self, h, k, v):
+        """subtree_put(h, k, v)
 h:  root of subtree
 k:  key
 v:  value
 recursive method to insert new kv-pair into tree
 and maintain balance"""
         if h is None: return self.Node(k, v)
-        if k < h.k:     h.l = self.__put__(h.l, k, v)
-        elif h.k < k:   h.r = self.__put__(h.r, k, v)
+        if k < h.k:     h.l = self.subtree_put(h.l, k, v)
+        elif h.k < k:   h.r = self.subtree_put(h.r, k, v)
         else:           h.v = v
         self.restore(h)
         h = self.balance(h)

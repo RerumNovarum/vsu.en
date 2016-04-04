@@ -92,16 +92,17 @@ $l \\leq r \\in K$ where $K$ is totally ordered set of keys
 returns multiple of all values $v\\in M$
 with keys in range (l, r) inclusive,
 where (M, mul) is monoid"""
-        return self.__mul__(self.root, l, r) if self.root else self.id
-    def __mul__(self, h, l, r):
-        """__mul__(h, l, r)
+        return self.subtree_mul(self.root, l, r) if self.root else self.id
+    def subtree_mul(self, h, l, r):
+        """subtree_mul(h, l, r)
 calculates cumulative in intersection of (h.lk, h.rk) and (l, r)"""
         s = self.id
+        if h is None: return s
         if l <= h.lk <= h.rk <= r: return h.mul
         if h.l and intersects(h.l.lk, h.l.rk, l, r):
-            s = self.mulbin(self.__mul__(h.l, l, r), s)
+            s = self.mulbin(self.subtree_mul(h.l, l, r), s)
         if l <= h.k <= r:
             s = self.mulbin(s, h.v)
         if h.r and intersects(h.r.lk, h.r.rk, l, r):
-            s = self.mulbin(s, self.__mul__(h.r, l, r))
+            s = self.mulbin(s, self.subtree_mul(h.r, l, r))
         return s
