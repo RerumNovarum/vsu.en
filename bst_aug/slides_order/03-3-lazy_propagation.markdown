@@ -1,1 +1,0 @@
-../slides/lazy_propagation.markdown

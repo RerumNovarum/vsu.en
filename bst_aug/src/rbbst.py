@@ -59,20 +59,20 @@ and maintain balance"""
         self.restore(h)
         h = self.balance(h)
         return h
-    def __get__(self, h, k):
-        """__get__(h, k)
+    def subtree_get(self, h, k):
+        """subtree_get(h, k)
 h:  root of subtree
 k:  queried key
 TODO: should be rewritten as iterative"""
         if h is None:   return
-        if k < h.k:     return self.__get__(h.l, k)
-        elif h.k < k:   return self.__get__(h.r, k)
+        if k < h.k:     return self.subtree_get(h.l, k)
+        elif h.k < k:   return self.subtree_get(h.r, k)
         else:           return h.v
     def get(self, k):
         """get(k)
 $k\\in K$ where K is totally ordered set of keys
 returns value $v\\in M$ associated with key $k$ if any"""
-        return self.__get__(self.root, k)
+        return self.subtree_get(self.root, k)
     def rotate_left(self, h):
         """rotate_left(h)
 rotates left the edge (h, h.r) and returns new root"""

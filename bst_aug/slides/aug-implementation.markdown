@@ -13,7 +13,7 @@ Augmenting search trees
 -----------------------
 
 Balancing?
-Is based on local rotations,
+Is based on rotations, these are local operations,
 so we can maintain auxiliary data
 during them
 
@@ -22,24 +22,27 @@ during them
 Augmenting search trees
 -----------------------
 
+Say red-black tree is implemented in recursive manner,
+with e.g. insertion looking like this:
 ```python
-    def __put__(self, h, k, v):
-        """__put__(h, k, v)
+    def subtree_put(self, h, k, v):
+        """subtree_put(h, k, v)
 h:  root of subtree
 k:  key
-v:  value
-recursive method to insert new kv-pair into tree
-and maintain balance"""
+v:  value"""
         if h is None: return self.Node(k, v)
-        if k < h.k:     h.l = self.__put__(h.l, k, v)
-        elif h.k < k:   h.r = self.__put__(h.r, k, v)
+        if k < h.k:     h.l = self.subtree_put(h.l, k, v)
+        elif h.k < k:   h.r = self.subtree_put(h.r, k, v)
         else:           h.v = v
-        self.restore(h) # here we maintain aux
-        h = self.balance(h) # and here too
+        self.restore(h)
+        h = self.balance(h)
         return h
 ```
 
 * * *
+
+We can upgrade it to serve for range-queries
+by augmenting `Node` and overriding `restore()`
 
 SegmentTree (API)
 -----------
@@ -58,12 +61,15 @@ id:     identity element
 
 * * *
 
-SegmentTree (API)
+SegmentTree (Sample client)
 -----------------
 
 ```python
+# SegmentTree for Monoid of numbers
+# with regular addition operation
+# and 0 as identity element
 def add(x, y): return x+y
-t = SegmentTree(add, 0)
+t = SegmentTree(add, 0) 
 t.put('a', 1) # associate value 1 with key 'a'
 t.put('b', 3)
 t.put('c', 22)
@@ -77,17 +83,41 @@ SegmentTree (API)
 -----------------
 
 ```python
+# SegmentTree for Monoid of strings
+# with associative operation of concatenation
+# and empty string as identity element
 def add(x, y): return x+y
 t = SegmentTree(add, '')
 t.put(1, 'some ')
-t.put(10**32, 'strings') # we can use some large 'indices'* * *
+t.put(10**32, 'strings') # we can use some large 'indices'
 t.put(-10**9, 'concat ')
 t.mul(-10**64, 10**64)   # yields 'concat some strings'
 ```
 
 * * *
 
-SegmentTree maintaining aux data
+SegmentTree (Augmentation)
+--------------------------
+
+We'll augment each node `h`
+to store multiple 'h.mul'
+of elements in range from 'h.lk' through 'h.rk'
+
+```python
+class Node(rbbst.Node):
+    def __init__(self, k, v):
+        super(Node, self).__init__(k, v)
+        # we insert every new `Node` as a leaf
+        # so it represents segment [k,k]
+        self.lk  = self.rk = k
+        # and multiple in this segment is simply `v`
+        self.mul = v
+```
+
+
+* * *
+
+SegmentTree (Maintaining aux data)
 --------------------------------
 
 ```python
@@ -113,16 +143,17 @@ SegmentTree query
 -----------------
 
 ```python
-    def __mul__(self, h, l, r):
-        """__mul__(h, l, r)
+    def subtree_mul(self, h, l, r):
+        """subtree_mul(h, l, r)
 calculates cumulative in intersection of (h.lk, h.rk) and (l, r)"""
         s = self.id
+        if h is None: return s
         if l <= h.lk <= h.rk <= r: return h.mul
         if h.l and intersects(h.l.lk, h.l.rk, l, r):
-            s = self.mulbin(self.__mul__(h.l, l, r), s)
+            s = self.mulbin(self.subtree_mul(h.l, l, r), s)
         if l <= h.k <= r:
             s = self.mulbin(s, h.v)
         if h.r and intersects(h.r.lk, h.r.rk, l, r):
-            s = self.mulbin(s, self.__mul__(h.r, l, r))
+            s = self.mulbin(s, self.subtree_mul(h.r, l, r))
         return s
 ```

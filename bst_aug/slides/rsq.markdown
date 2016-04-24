@@ -8,7 +8,7 @@ in subarray ```a[l..r]```
 
 . . .
 
-In offline-variation
+In offline-variation,
 simple preprocessing (calculating cumulative partial sums)
 in $O(n)$ time
 allows to answer any such query in $O(1)$ time
@@ -19,3 +19,5 @@ allows to answer any such query in $O(1)$ time
 def rsq(l, r):
   return cumsum[r] - (cumsum[l-1] if l != 0 else 0)
 ```
+
+* * *

@@ -3,9 +3,9 @@ Foreword
 
 Speech is supposed to
 
-> * take 5-10 minutes
-> * be rough
+> * take at most 15 minutes
+> * be simple
+> * be demonstrative
 
-. . .
+* * *
 
-But it's not completed yet so neither of these goals is achieved

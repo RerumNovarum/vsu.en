@@ -12,8 +12,10 @@ with value $v$
 Lazy propagation
 ----------------
 
-For array-based implementation
-solution is to store in node ```cache```
+We can modify existing solution
+to store in node `cache`
 along with value
 and propagate it lazily
 to childrens as you go down
+
+* * *

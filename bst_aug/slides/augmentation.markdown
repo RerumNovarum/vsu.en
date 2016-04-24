@@ -48,3 +48,20 @@ and maintaining this data during rotations:
      $l, r, k_j\in K$ and $l\leq k_j \leq r$ and $k_i\leq k_j$ for all $i\leq j=\overline{1,m}$
 
 * * *
+
+Go deeper
+---------
+
+We're not actually restricted
+to use values set' monoid structure.
+
+* Let $(K, \odot, I)$ be monoid too
+
+* Their cartesian product $K\times M$
+  with product $\otimes=(\odot,\circ)$
+  and identity $J=(I, 1)$
+  is a monoid as well
+
+* We can maintain $\odot$-multiple of keys in range
+  in the same manner as multiple of values
+  or, equivalently, $\otimes$-multiple of key-value pairs

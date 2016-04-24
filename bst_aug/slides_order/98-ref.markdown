@@ -1,1 +1,0 @@
-../slides/references.markdown

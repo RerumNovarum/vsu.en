@@ -31,7 +31,7 @@ We need some ordered Symbol Table
 
 . . .
 
-Binary Search Tree, it's straightforward
+Binary Search Tree!
 
 . . .
 

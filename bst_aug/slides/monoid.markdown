@@ -9,15 +9,7 @@ Monoid is a semigroup with an identity element
 
 . . .
 
-What's semigroup?
-
-. . .
-
 Semigroup is an associative magma
-
-. . .
-
-And what the heck is magma?
 
 . . .
 
@@ -33,6 +25,6 @@ and an identity element regarding this operation
 
 . . .
 
-Monoid is fundamental structure for range-queries
+It happens that monoid is fundamental structure for range-queries
 
 * * *
