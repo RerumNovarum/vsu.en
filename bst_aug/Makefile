@@ -2,6 +2,7 @@ CC=pandoc
 SLIDES=\
 slides/title.markdown \
 slides/contact.markdown \
+slides/github.markdown \
 slides/foreword.markdown \
 slides/motivation.markdown \
 slides/cumulative.markdown \

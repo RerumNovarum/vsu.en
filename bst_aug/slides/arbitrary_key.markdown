@@ -40,3 +40,5 @@ Can we handle range queries anyhow but bruteforcing?
 . . .
 
 YES!
+
+* * *

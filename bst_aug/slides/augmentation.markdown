@@ -65,3 +65,11 @@ to use values set' monoid structure.
 * We can maintain $\odot$-multiple of keys in range
   in the same manner as multiple of values
   or, equivalently, $\otimes$-multiple of key-value pairs
+
+
+* * *
+
+Actually, later we'll mainly ignore this formalisation
+and will say, that we just maintain some Node invariants
+
+* * *
