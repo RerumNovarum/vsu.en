@@ -15,7 +15,7 @@ Contact info
 * GPG: **B986D856**
 * Sources and examples are available at [https://github.com/RerumNovarum/vsu.en](https://github.com/RerumNovarum/vsu.en)
 
-![octocat][octocat]{}
+![available on github][octocat]
 
 * * *
 
@@ -397,7 +397,7 @@ Star topology
 Star topology
 --------------
 
-![star disconnected][star-d]
+![single (root) node destroyed][star-d]
 
 Protection
 ==========
@@ -488,6 +488,8 @@ Provides:
 * Deniability
 * Perfect forward secrecy
 
+[otr.cypherpunks.ca][otr]
+
 * * *
 
 OMEMO
@@ -504,6 +506,8 @@ Multi-end to multi-end message and object encryption
 * Verifiability
 * Deniability
 * Easy to setup and use
+
+Already implemented in [Conversations][conversations] android app
 
 * * *
 
@@ -613,12 +617,14 @@ Secure environment. Android 6.0
 Android dev-team made a big deal
 to adopt SE Linux for Android
 
-Since 6.0 every single domain #TODO
+Since 6.0 every single domain 
+
+[More info][howtonotdisableselinux]
 
 * * *
 
-Secure environment
-------------------
+Secure environment. Qubes
+-------------------------
 
 Security cannot be an extension,
 a system should be designed with security in mind
@@ -627,6 +633,15 @@ Qubes OS is based on concept of security-by-isolation
 
 It runs every separate task in isolated domain,
 i.e. in virtual machines
+
+[http://qubes-os.org/][qubes-os]
+
+* * *
+
+Secure environment. Qubes
+-------------------------
+
+![qubes security domains][qubes]
 
 * * *
 
@@ -643,8 +658,31 @@ which means it's almost impossible
 to force user to give up private data during ingerrogation
 (but probably bloody KGB has the means)
 
+[More on archwiki][fulldiskencryption-archwiki]
 
-[octocat]: pic/GitHub-Mark/PNG/GitHub-Mark-64px.png "Github"
+* * *
+
+Robust networking
+-----------------
+
+Instead of centralized Internet,
+enjoy decentralized meshnetworks
+
+Start a meshlocal
+
+Read about [cjdns][] and [hyperboria][hyperboria-docs]
+
+Contact info
+------------
+
+* Sergey Kozlukov <[rerumnovarum@openmailbox.org](mailto://rerumnovarum@openmailbox.org)>
+* GPG: **B986D856**
+* Sources and examples are available at [https://github.com/RerumNovarum/vsu.en](https://github.com/RerumNovarum/vsu.en)
+
+![Fork me][forkme]
+
+[octocat]: pic/GitHub-Mark/PNG/GitHub-Mark-32px.png "Github"
+[forkme]: pic/forkme.png
 [upgradefromwindows]: pic/windows.png "Upgrade from Windows"
 [windows8killswitch]: "http://www.pcmag.com/article2/0,2817,2400985,00.asp"
 [dbd_apple_watch]: pic/dbd_apple_watch.png
@@ -657,3 +695,12 @@ to force user to give up private data during ingerrogation
 [star-c]: pic/star.c.png
 [star-d]: pic/star.d.png
 [emailselfdefence]: pic/emailselfdefence.png
+[qubes]: pic/Qubes_security_domains.png
+[qubes-os]: "http://qubes-os.org/"
+[privacyisdead]: "http://www.amara.org/ru/videos/YSEgofMg2wgv/info/steven-rambam-privacy-is-dead-get-over-it-part-1/"
+[conversations]: "https://github.com/siacs/Conversations"
+[otr]: "https://otr.cypherpunks.ca/"
+[howtonotdisableselinux]: "http://www.slideshare.net/gottsc_r/how-to-not-disable-selinux"
+[fulldiskencryption-archwiki]: "https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system"
+[cjdns]: "https://github.com/cjdelisle/cjdns"
+[hyperboria-docs]: "https://github.com/hyperboria/docs"

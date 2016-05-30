@@ -1,9 +1,11 @@
+all: freedom.pdf
+
 freedom.pdf: freedom.md pictures
 	pandoc --latex-engine=xelatex -F pandoc-crossref -F pandoc-citeproc --biblatex -t beamer -V mainfont='CMU Serif' -V geometry:margin=2cm -S freedom.md -o freedom.pdf
 
 pictures: graphs
 
-graphs: gr-star.c gr-star.d
+graphs: pic/star.c.png pic/star.d.png
 
-gr-%: pic/%.dot
-	dot -Tpng -o pic/$*.png pic/$*.dot
+pic/star.%.png: pic/star.%.dot
+	dot -Tpng -o pic/star.$*.png pic/star.$*.dot

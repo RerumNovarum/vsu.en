@@ -1,7 +1,5 @@
 graph {
-  root=root
   layout=circo
-  root
   a
   b
   c
