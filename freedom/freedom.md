@@ -530,7 +530,119 @@ There are solutions to communicate and browse the internet anonymiously
 
   Allows for anonymious bittorrent, irc, email, &c
 
-  Multiple web services
+  Multiple useful web services,
+  e.g. an0nymious markets like Silk Road
+  (discredited by govt ostensibly for occasional usage by drug-dillers)
+
+  * * *
+
+  Bitcoin, the only secure currency
+  ---------------------------------
+
+  Based on cryptography,
+  instead of lies of politicians and bankers
+
+  Maintains publicly Huge database of all the transactions
+
+* * *
+
+Go harder: safe environment. Tails and friends
+----------------------------------------------
+
+There are special distributions designed
+to setup one-time identity
+
+You boot from live-usb,
+connect to the net (e.g. tor)
+and there is no metadata this system may accidentaly leak
+
+* * *
+
+Go harder: safe environment. Whonix
+----------------------------------------------
+
+And still there is possibility,
+that some application will ocassionally
+connect without proxy
+to the host you supposed to connect to anonymiously,
+thus revealing your real IP addres
+
+One of the solutions is Whonix
+
+* * *
+
+Go harder: safe environment. Whonix
+----------------------------------------------
+
+The idea is simple:
+
+* Run a separate virtual machine to establish tor connection (Gateway)
+* Run a separate machine for browsing with the only network interface
+  which is a bridge to Gateway that redirects EVERYTHING into tor
+
+Security-by-isolation... That works
+
+* * *
+
+Secure environment. SE Linux
+----------------------------
+
+Security-enhanced linux
+
+Introduces mandatory access control,
+roles, contexts, &c
+instead of unix' stupid discretionary control (rwx)
+
+Multiple benefits
+
+E.g.
+
+* When a program needs to read a specific (protected) file,
+  you don't elevate it'a privileges to the root level,
+  you allow to read a specific file
+* &c
+
+Same concept, everything is prohibited,
+until user explicitly permits specific action
+
+* * *
+
+Secure environment. Android 6.0
+----------------------------
+
+Android dev-team made a big deal
+to adopt SE Linux for Android
+
+Since 6.0 every single domain #TODO
+
+* * *
+
+Secure environment
+------------------
+
+Security cannot be an extension,
+a system should be designed with security in mind
+
+Qubes OS is based on concept of security-by-isolation
+
+It runs every separate task in isolated domain,
+i.e. in virtual machines
+
+* * *
+
+Prepare to detention
+--------------------
+
+Use full-disk encryption via LUKS
+
+It is quite easy to follow e.g. archlinux' guide
+Also LUKS recently introduced nuke-passphrase feature,
+which once entered makes kernel module to literally
+Nuke entire cryptcontainer,
+which means it's almost impossible
+to force user to give up private data during ingerrogation
+(but probably bloody KGB has the means)
+
 
 [octocat]: pic/GitHub-Mark/PNG/GitHub-Mark-64px.png "Github"
 [upgradefromwindows]: pic/windows.png "Upgrade from Windows"
